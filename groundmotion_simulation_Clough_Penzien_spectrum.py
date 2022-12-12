@@ -32,4 +32,4 @@ def groundmotion_simulation( S_o = 1, f_g = 3, d_g = 0.6, f_f = 0.3, d_f = 0.6, 
 ## Envelop multiplied with stationary process to get ground motion
     grnd_acln = np.multiply(grnd_acln, Envlpe)
 
-    return time_vector, grnd_acln, X_gg
+    return time_vector, grnd_acln
