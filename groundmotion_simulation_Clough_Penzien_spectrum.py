@@ -21,7 +21,7 @@ def groundmotion_simulation( S_o = 1, f_g = 3, d_g = 0.6, f_f = 0.3, d_f = 0.6, 
 
 # Complex Fourier coefficients
     X_gg = np.multiply( np.power(T*S_gg, 0.5), np.exp(1j*phase))    
-    X_gg = np.concatenate((X_gg, np.flipud(np.conjugate(X_gg[1:-1]))))
+    X_gg = np.concatenate((X_gg, np.flipud(np.conjugate(X_gg[1: -1]))))
 
 # ground acceleration throguh inverse Fourier transform
     grnd_acln = np.fft.ifft(X_gg, n = npts)/dt
@@ -32,4 +32,4 @@ def groundmotion_simulation( S_o = 1, f_g = 3, d_g = 0.6, f_f = 0.3, d_f = 0.6, 
 ## Envelop multiplied with stationary process to get ground motion
     grnd_acln = np.multiply(grnd_acln, Envlpe)
 
-    return time_vector, grnd_acln
+    return time_vector, grnd_acln, X_gg
